@@ -6,25 +6,22 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.playaround.game.playaround_game;
-import com.playaround.menu.BackgroundSelectionButton;
+import com.playaround.menu.SetAutoFire;
 import com.playaround.menu.UIButton;
 
 public class OptionsScreen implements Screen{
-	BitmapFont font = new BitmapFont();
 	List<UIButton> buttonList = new ArrayList<UIButton>();
 	int selectedButtonList = 0;
 	
 	public OptionsScreen() {
-		for (int i = 0; i < playaround_game.backgroundList.size(); i++) {
-			buttonList.add(new BackgroundSelectionButton(playaround_game.backgroundList.get(i), buttonList.size(), isFirst()));
-		}
+		buttonList.add(new SetAutoFire("Turn Autofire Off", buttonList.size(), true, false));
+		buttonList.add(new SetAutoFire("Turn Autofire On", buttonList.size(), false, true));
 	}
 	
-	boolean isFirst() {
-		if (buttonList.isEmpty()) {return true;}
+	boolean isFirst(List<Object> inList) {
+		if (inList.isEmpty()) {return true;}
 		return false;
 	}
 	
@@ -34,6 +31,9 @@ public class OptionsScreen implements Screen{
 	}
 	
 	void Update(float dt) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+			ScreenManager.getInstance().swapToScreen(new MainMenu());
+		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
 			//Down
 			if (selectedButtonList < buttonList.size() - 1) {

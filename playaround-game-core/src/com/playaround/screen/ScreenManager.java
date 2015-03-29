@@ -22,6 +22,7 @@ public class ScreenManager {
 	}
 	
 	public void addScreen(Screen screen) {
+		screen.show();
 		instance.screenList.add(screen);
 	}
 	
@@ -31,6 +32,7 @@ public class ScreenManager {
 	
 	public void swapToScreen(Screen screen) {
 		instance.emptyScreenList();
+		screen.show();
 		instance.addScreen(screen);
 	}
 	

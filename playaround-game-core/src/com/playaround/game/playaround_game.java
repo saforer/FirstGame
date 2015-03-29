@@ -14,6 +14,7 @@ public class playaround_game extends ApplicationAdapter {
 	public static ScreenManager sm;
 	public static String selectedBackground = "badlogic.jpg";
 	public static List<String> backgroundList = new ArrayList<String>();
+	public static boolean autofire = false;
 	
 	public void create () {
 		batch = new SpriteBatch();
