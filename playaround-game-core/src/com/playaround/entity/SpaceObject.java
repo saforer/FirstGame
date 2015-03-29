@@ -12,13 +12,6 @@ public class SpaceObject {
 	float velY;
 	
 	public void Update(float dt) {
-		float speedMax = 10;
-		float vec = (float) Math.sqrt(velX * velX + velY * velY);
-		if (vec > speedMax) {
-			velX = (velX / vec) * speedMax;
-			velY = (velY / vec) * speedMax;
-		}
-		
 		sprite.setY(sprite.getY() + velY);
 		sprite.setX(sprite.getX() + velX);
 		Wrap();

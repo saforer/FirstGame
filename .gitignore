@@ -13,3 +13,4 @@ hs_err_pid*
 playaround-game-core/.classpath
 playaround-game-core/.project
 playaround-game-core/.settings/org.eclipse.jdt.core.prefs
+playaround-game-core/build.gradle
